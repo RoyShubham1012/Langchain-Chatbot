@@ -38,6 +38,7 @@ prompt_template = ChatPromptTemplate.from_messages([system_msg_template, Message
 
 conversation = ConversationChain(memory=buffer_memory, prompt=prompt_template, llm=llm, verbose=True)
 
+
 # container for chat history
 response_container = st.container()
 # container for text box
@@ -45,7 +46,7 @@ text_container = st.container()
 
 with text_container:
     query = st.text_input("You: ", key="input")
-    print('rrgr', st.session_state)
+    # print('rrgr', st.session_state)
     if query:
         with st.spinner("Typing..."):
             response = conversation.predict(input=query)
